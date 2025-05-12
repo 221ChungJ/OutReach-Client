@@ -1,7 +1,7 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
   text-align: center;
 }
 
@@ -86,8 +86,9 @@
 
 .main-content {
   flex: 1;
-  padding: 20px;
+  padding: 0;
   background-color: #f5f6fa;
+  width: 100%;
 }
 
 /* Form Styles */
