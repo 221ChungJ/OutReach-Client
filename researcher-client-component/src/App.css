@@ -3,6 +3,11 @@
   margin: 0;
   padding: 0;
   text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 .logo {
@@ -89,6 +94,11 @@
   padding: 0;
   background-color: #f5f6fa;
   width: 100%;
+  min-height: calc(100vh - 250px);
+  display: flex;
+  flex-direction: column;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 /* Form Styles */
