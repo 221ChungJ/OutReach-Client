@@ -192,3 +192,81 @@ body {
     opacity: 1;
   }
 }
+
+.session-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--background-color);
+}
+
+.session-form {
+  background-color: var(--user-message-background);
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid var(--input-border-color);
+  width: 100%;
+  max-width: 400px;
+}
+
+.session-form h2 {
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+  color: var(--text-color);
+  font-family: var(--font-family);
+}
+
+.session-form input {
+  width: 100%;
+  padding: 14px 18px;
+  margin-bottom: 1rem;
+  background-color: var(--input-background);
+  border: 1px solid var(--input-border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  color: var(--input-text-color);
+  font-family: var(--font-family);
+  transition: border-color 0.3s;
+}
+
+.session-form input:focus {
+  outline: none;
+  border-color: #8E8EA0;
+  box-shadow: 0 0 0 1px rgba(142, 142, 160, 0.5);
+}
+
+.session-form button {
+  width: 100%;
+  padding: 14px 16px;
+  background-color: var(--button-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: var(--font-family);
+}
+
+.session-form button:hover:not(:disabled) {
+  background-color: var(--button-hover-color);
+}
+
+.session-error {
+  background-color: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: var(--text-color);
+  padding: 14px 18px;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  text-align: center;
+  font-family: var(--font-family);
+}
+
+.session-form input:disabled,
+.session-form button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
