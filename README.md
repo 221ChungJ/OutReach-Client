@@ -1,4 +1,4 @@
-# Docker Setup for OutReach Client
+# OutReach Interviewee and Researcher Clients
 
 ## Prerequisites
 
@@ -17,7 +17,7 @@ docker compose up dev
 
 This will:
 - Install the latest Node.js LTS version
-- Install dependencies for both projects
+- Install dependencies for both clients
 - Start both dev servers
 - Enable hot reloading for source code changes
 
@@ -54,7 +54,6 @@ docker run -p 5173:5173 -p 5174:5174 \
 
 - **Latest Node.js**: Uses the latest LTS version of Node.js
 - **Hot reloading**: Live code changes are reflected immediately
-- **Dual project support**: Both Vite projects run simultaneously
 - **Port isolation**: Each project runs on its own port (5173 and 5174)
 - **Volume mounting**: Source code is mounted for instant updates
 
