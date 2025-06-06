@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  # Development environment - runs both Vite dev servers
+  dev:
+    build:
+      context: .
+      dockerfile: docker
+    ports:
+      - "5173:5173"  # researcher-client-component
+      - "5174:5174"  # interview-agent-component
+    volumes:
+      # Mount source code for hot reloading
+      - ./researcher-client-component/src:/app/researcher-client-component/src
+      - ./interview-agent-component/src:/app/interview-agent-component/src
+      - ./researcher-client-component/public:/app/researcher-client-component/public
+      - ./interview-agent-component/public:/app/interview-agent-component/public
+    environment:
+      - NODE_ENV=development
+    networks:
+      - vite-network
+
+networks:
+  vite-network:
+    driver: bridge 

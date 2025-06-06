@@ -5,10 +5,7 @@ import './App.css'
 // Components
 import Header from './components/Header'
 import Dashboard from './components/Dashboard'
-import SurveyCreation from './components/SurveyCreation'
-import ParticipantManagement from './components/ParticipantManagement'
-import SurveyPreview from './components/SurveyPreview'
-import SurveyList from './components/SurveyList'
+import InterviewCreation from './components/InterviewCreation'
 
 function App() {
   return (
@@ -23,18 +20,13 @@ function App() {
             <ul className="nav-links">
               <li><Link to="/">Dashboard</Link></li>
               <li><Link to="/create-interview">Create Interview</Link></li>
-              {/* <li><Link to="/manage-participants">Manage Participants</Link></li>
-              <li><Link to="/surveys">My Surveys</Link></li> */}
             </ul>
           </nav>
           
           <main className="main-content">
             <Routes>
               <Route path="/" element={<Dashboard />} />
-              <Route path="/create-interview" element={<SurveyCreation />} />
-              <Route path="/manage-participants" element={<ParticipantManagement />} />
-              <Route path="/surveys" element={<SurveyList />} />
-              <Route path="/preview-survey/:id" element={<SurveyPreview />} />
+              <Route path="/create-interview" element={<InterviewCreation />} />
             </Routes>
           </main>
         </div>

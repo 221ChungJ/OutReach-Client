@@ -1,0 +1,31 @@
+# Use the official Node.js image with the latest LTS version
+FROM node:lts-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Copy package.json files first for better caching
+COPY researcher-client-component/package*.json ./researcher-client-component/
+COPY interview-agent-component/package*.json ./interview-agent-component/
+
+# Install dependencies for both projects
+RUN cd researcher-client-component && npm ci
+RUN cd interview-agent-component && npm ci
+
+# Copy source code
+COPY researcher-client-component/ ./researcher-client-component/
+COPY interview-agent-component/ ./interview-agent-component/
+
+# Expose ports for both Vite dev servers
+# Default Vite port is 5173, but we'll use different ports for each project
+EXPOSE 5173 5174
+
+# Create a startup script to run both projects
+RUN echo '#!/bin/sh' > /app/start-dev.sh && \
+    echo 'cd /app/researcher-client-component && npm run dev -- --host 0.0.0.0 --port 5173 &' >> /app/start-dev.sh && \
+    echo 'cd /app/interview-agent-component && npm run dev -- --host 0.0.0.0 --port 5174 &' >> /app/start-dev.sh && \
+    echo 'wait' >> /app/start-dev.sh && \
+    chmod +x /app/start-dev.sh
+
+# Default command for development
+CMD ["/app/start-dev.sh"]
